@@ -26,8 +26,8 @@ module.exports.run = async (bot, message, args) => {
     let d1 = new Date(message.createdTimestamp)
     let d2 = new Date(argsUser.createdTimestamp)
     let d3 = new Date(message.guild.member(argsUser).joinedTimestamp)
-    let diff1 = Math.round(Math.abs(d1.getTime() - d2.getTime() / day)) //с момента регистрации
-    let diff2 = Math.round(Math.abs(d1.getTime() - d3.getTime() / day)) //с момента вступления на сервер
+    let diff1 = Math.round(Math.abs((d1.getTime() - d2.getTime()) / day)) //с момента регистрации
+    let diff2 = Math.round(Math.abs((d1.getTime() - d3.getTime()) / day)) //с момента вступления на сервер
 
     let embed = new RichEmbed()
         .setTitle(argsUser.username)

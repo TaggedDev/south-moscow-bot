@@ -1,5 +1,7 @@
+const Discord = require('discord.js')
 module.exports.run = async (bot, message, args =>{
   
+    let sicon = message.guild.iconURL;
     
     let embed = new Discord.RichEmbed() 
         .setAuthor(`Информация о командах на "${message.guild.name}"`)
@@ -11,7 +13,7 @@ module.exports.run = async (bot, message, args =>{
         .addField(`*kick - Кикает пользователя (если есть права управления ролями)`)
         .addField(`*ban - Банит игрока по IP (если есть права управления ролями)`)
         .addField(`*mute - Мутит текстовый чат (если есть права управления ролями)`)
-        .addField(`*send - Отправляет сообщение от имени бота (если есть права управления сообщениями)`)       
+        .addField(`*send - Отправляет сообщение от имени бота (если есть права управления сообщениями)`)        
         .addField(`*edit - Редактирует сообщение бота (если есть права управления сообщениями)`)
         .addField(`*clear - удаляет сообщения в канале(если есть права управления сообщениями)`)
         .addField(`*pin - закрепляет сообщение в канале(если есть права управления сообщениями)`)
@@ -20,6 +22,6 @@ module.exports.run = async (bot, message, args =>{
 
 })
 
-module.exports.run = {
-  name: 'help'
-  }
+module.exports.help = {
+    name: 'help'
+}

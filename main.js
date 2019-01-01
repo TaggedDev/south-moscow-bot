@@ -28,10 +28,9 @@ bot.on('message',async message => {
     if (commands_file) commands_file.run(bot, message, args)
 })
 
-bot.login(config.token);
+
+bot.login(process.env.BOT_TOKEN);
 bot.on('ready', () => {
     console.log(`${bot.user.username} online`);
     bot.user.setPresence({status: 'online', game:{status: 'Бот тестируется', type: 3}});
 })
-
-client.login(process.env.BOT_TOKEN)

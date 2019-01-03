@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     let diff2 = Math.round(Math.abs((d1.getTime() - d3.getTime()) / day)) //с момента вступления на сервер
 
     let embed = new RichEmbed()
-        .setTitle(argsUser.username)
+        .setTitle(argsUser.displayName)
         .setDescription(game)
         .addField('Дата регистрации в Discord', `${strftime('%d.%m.%Y в %H:%M', new Date(argsUser.createdTimestamp))}\n(${diff1})дней назад`, true)
         .addField('Дата вступления на сервер', `${strftime('%d.%m.%Y в %H:%M', new Date(message.guild.member(argsUser).joinedTimestamp))}\n(${diff2})дней назад`, true)

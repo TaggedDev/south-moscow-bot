@@ -7,12 +7,12 @@ module.exports.run = async (bot,message,args) => {
     if (!song) return message.channel.send('Укажите ссылку на трек') //Если это не ссылка, выводит
     if (!voice) return message.channel.send('Войдите в голосовой канал') //Если пользователь не в войс чате
 
-    let valid = ytdl.validdateURL(song) //Проверяем правильность ссылки
+    let valid = ytdl.validateURL(song) //Проверяем правильность ссылки
     if (!valid) return message.channel.send('Ссылка недействительна') //Если неправильная, то выводит
 
     let connection = await voice.join() //заходим в войс чат
-    let guild_queue = queue.get(message.guilg.id) //определяем, откуда очередь берет музыку
-    if (!guild_queue) guild_queue = queue.set(message.guild.id, {songs: []}).get.message(message.guild.id) //Если её не было до этого, создаем
+    let guild_queue = queue.get(message.guild.id) //определяем, откуда очередь берет музыку
+    if (!guild_queue) guild_queue = queue.set(message.guild.id, {songs: []}).get(message.guild.id) //Если её не было до этого, создаем
 
     guild_queue.songs.push(song) //Включаем микрофон
     message.channel.send('Трек был добавлен в очередь') //Пишем в чат
@@ -24,7 +24,7 @@ module.exports.help = {
 }
 
 async function play(connection, songs) { 
-    let music = await ytdl(songs[0], {filter: 'autoonly'}) 
+    let music = await ytdl(songs[0], {filter: 'audioonly'}) 
 
     connection.playStream(music, {volume: 0.5}) //Звук
     .on('end', () => {

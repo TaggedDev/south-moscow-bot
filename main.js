@@ -31,5 +31,5 @@ bot.on('message',async message => {
 bot.login(config.token)
 bot.on('ready', () => {
     console.log(`${bot.user.username} online`);
-    bot.user.setPresence({status: 'online', game:{status: 'Бот тестируется', type: 3}});
+    bot.user.setPresence({status: 'online', game:{status: 'CityBattle | Virtual Earth', type: 3}});
 })

@@ -16,7 +16,7 @@ module.exports.run = async (bot,message,args) => {
 
     guild_queue.songs.push(song) //Включаем микрофон
     message.channel.send('Трек был добавлен в очередь') //Пишем в чат
-    if (guild_queue.songs.length < 2) play(connection, guild_queue.songs) //Если длинна списка песен меньше 2, играем
+    if (guild_queue.songs.length > 2) play(connection, guild_queue.songs) //Если длинна списка песен меньше 2, играем
 }
 
 module.exports.help = {
